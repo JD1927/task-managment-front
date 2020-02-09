@@ -70,7 +70,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "task-managment-front:build"
+            "browserTarget": "task-managment-front:build",
+            "proxyConfig": "proxy.conf.json",
+            "port": 3001
           },
           "configurations": {
             "production": {
