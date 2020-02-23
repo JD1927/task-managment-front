@@ -1,0 +1,62 @@
+.animated {
+   animation-duration: .6s;
+   animation-fill-mode: both;
+}
+@for $i from 1 through 10 {
+   .animated[data-animation-dalay='.#{$i}'] {
+     animation-delay: #{$i * 0.1}s;
+   }
+}
+@keyframes fadeIn {
+   from {opacity: 0;}
+   to {opacity: 1;}
+}
+
+@keyframes fadeInOut {
+   from {opacity: 1;}
+   to {opacity: 0;}
+}
+
+@keyframes fadeInTop {
+   from {opacity:0;transform: translatey(20px);}
+   to {opacity:1;transform: translatey(0);}
+}
+
+@keyframes fadeInDown {
+   from {opacity:0;transform: translatey(-20px);}
+   to {opacity:1;transform: translatey(0);}
+}
+
+@keyframes fadeInLeft {
+   from {opacity:0;transform: translatex(-20px);}
+   to {opacity:1;transform: translatex(0);}
+}
+
+@keyframes fadeInRight {
+   from {opacity:0;transform: translatex(20px);}
+   to {opacity:1;transform: translatex(0);}
+}
+
+.fade-in-left {
+   animation-name: fadeInLeft;
+}
+
+.fade-in-right {
+   animation-name: fadeInRight;
+}
+
+.fade-in-down {
+   animation-name: fadeInDown;
+}
+
+.fade-in-top {
+   animation-name: fadeInTop;
+}
+
+.fade-in {
+   animation-name: fadeIn;
+}
+
+.fade-in-out {
+   animation-name: fadeInOut;
+}

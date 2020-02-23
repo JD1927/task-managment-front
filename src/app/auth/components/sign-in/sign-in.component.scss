@@ -1,0 +1,44 @@
+@import '../../../../assets/scss/utilities/mixins';
+
+.sign-in {
+
+  @include e('card') {
+    width: 100%;
+
+    @include gc('title') {
+      margin-bottom: 30px;
+    }
+
+    @include gc('username') {
+
+      margin-bottom: 10px;
+
+      .mat-form-field {
+        display: block;
+        position: relative;
+      }
+    }
+
+    @include gc('password') {
+
+      margin-bottom: 10px;
+
+      .mat-form-field {
+        display: block;
+        position: relative;
+      }
+    }
+
+    @include gc('register') {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+    }
+
+    @include gc('button') {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+    }
+  }
+}

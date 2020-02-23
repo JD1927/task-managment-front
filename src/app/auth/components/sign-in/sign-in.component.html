@@ -1,0 +1,33 @@
+<div class="sign-in">
+  <form [formGroup]="signInForm" (ngSubmit)="onSignIn()">
+    <mat-card class="sign-in__card">
+      <div class="sign-in__card-title">
+        <mat-card-title>Task Managment</mat-card-title>
+      </div>
+      <div class="sign-in__card-username">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username">
+          <mat-error *ngIf="signInForm.controls.username.hasError('required')">
+            Username is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="sign-in__card-password">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password" autocomplete="off">
+          <mat-error *ngIf="signInForm.controls.password.hasError('required')">
+            Password is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="sign-in__card-button">
+        <button [disabled]="!signInForm.valid" type="submit" mat-raised-button color="primary">Sign in</button>
+      </div>
+      <div class="sign-in__card-register">
+        <a mat-button routerLink="/auth/sign-up">Aren't you registered yet?</a>
+      </div>
+    </mat-card>
+  </form>
+</div>
