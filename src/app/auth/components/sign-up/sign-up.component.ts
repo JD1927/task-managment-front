@@ -45,8 +45,7 @@ export class SignUpComponent implements OnInit {
     const { name, birthDate, username, password } = this.signUpForm.value;
     const data = { name, birthDate: birthDate.toDateString(), username, password };
     this.authService.signUp(data).subscribe(
-      (res) => {
-        console.log(res);
+      () => {
         this.router.navigate(['/auth/sign-in']);
       },
       (err) => {

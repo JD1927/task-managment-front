@@ -1,0 +1,36 @@
+@import './../../../../styles.scss';
+
+.task-detail {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    'title title title title title title title title title title title delete'
+    'detail detail detail detail detail detail detail detail detail detail detail delete'
+    'status status status status status status status status status status status delete';
+  margin-bottom: 20px;
+
+  @include e('title') {
+    grid-area: title;
+    margin-bottom: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  @include e('detail') {
+    grid-area: detail;
+    margin-bottom: 10px
+  }
+
+  @include e('status') {
+    grid-area: status;
+  }
+
+  @include e('delete') {
+    grid-area: delete;
+    display: grid;
+    place-items: center;
+    color: tomato;
+    cursor: pointer;
+  }
+}

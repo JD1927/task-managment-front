@@ -7,6 +7,7 @@
 
     @include gc('title') {
       margin-bottom: 30px;
+      color: #001f3f;
     }
 
     @include gc('username') {
@@ -21,11 +22,24 @@
 
     @include gc('password') {
 
-      margin-bottom: 10px;
-
       .mat-form-field {
         display: block;
         position: relative;
+      }
+    }
+
+    @include gc('error') {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      color: tomato;
+      border: 1px solid tomato;
+      border-radius: 5px;
+      padding: 5px;
+
+      p {
+        margin-bottom: 0;
+        margin-right: 5px;
       }
     }
 
@@ -33,6 +47,8 @@
       display: flex;
       justify-content: flex-start;
       margin-bottom: 20px;
+      color: #001f3f;
+
     }
 
     @include gc('button') {

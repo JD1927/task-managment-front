@@ -1,0 +1,16 @@
+@import './../../../../styles.scss';
+
+.new-task {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include e('actions') {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+
+    button {
+      padding: 10px;
+    }
+  }
+}

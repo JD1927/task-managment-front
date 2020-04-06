@@ -5,7 +5,7 @@ export interface SignIn {
 
 export interface SignUp extends SignIn {
   name: string;
-  birthDate: Date;
+  birthDate: string;
 }
 
 
@@ -18,4 +18,5 @@ export interface JwtPayload {
 export interface UserLogged extends JwtPayload {
   accessToken: string;
   expiresAt?: number;
+  error: Error;
 }

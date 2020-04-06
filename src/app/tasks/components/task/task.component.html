@@ -1,0 +1,20 @@
+<mat-card class="task-detail mat-elevation-z8">
+  <div class="task-detail__title">
+    {{ task.title }}
+  </div>
+  <div class="task-detail__detail">
+    {{ task.description }}
+  </div>
+  <div class="task-detail__status">
+    <mat-form-field>
+      <mat-select [(value)]="selected" (selectionChange)="onStatusChange(task.id, $event.value)">
+        <mat-option *ngFor="let status of taskStatus" [value]="status">
+          {{ status | uppercase }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="task-detail__delete">
+    <img (click)="onDeleteTask(task.id)" class="material-icons" src="../../../../assets/images/svg/delete_forever.svg">
+  </div>
+</mat-card>

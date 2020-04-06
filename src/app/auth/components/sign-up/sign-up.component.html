@@ -1,11 +1,11 @@
 <div class="sign-up">
   <form [formGroup]="signUpForm">
-    <mat-card class="sign-up__card">
+    <mat-card class="sign-up__card mat-elevation-z8">
       <div class="sign-up__card-title">
-        <mat-card-title>Task Managment</mat-card-title>
+        <mat-card-title>Sign up</mat-card-title>
       </div>
       <div class="sign-up__card-name">
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>Name</mat-label>
           <input matInput formControlName="name" autocomplete="off">
           <mat-error *ngIf="signUpForm.controls.name.hasError('required')">
@@ -14,7 +14,7 @@
         </mat-form-field>
       </div>
       <div class="sign-up__card-birth-date">
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>Birt date</mat-label>
           <input matInput [matDatepicker]="picker" formControlName="birthDate" [max]="maxDate" autocomplete="off">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -25,7 +25,7 @@
         </mat-form-field>
       </div>
       <div class="sign-up__card-username">
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>Username</mat-label>
           <input matInput formControlName="username" autocomplete="off">
           <mat-error *ngIf="signUpForm.controls.username.hasError('required')">
@@ -34,7 +34,7 @@
         </mat-form-field>
       </div>
       <div class="sign-up__card-password">
-        <mat-form-field appearance="outline">
+        <mat-form-field>
           <mat-label>Password</mat-label>
           <input matInput type="password" formControlName="password" autocomplete="off">
           <mat-error *ngIf="signUpForm.controls.password.hasError('required')">
@@ -58,7 +58,7 @@
       </div>
       <div class="sign-up__card-button">
         <div class="cancel">
-          <button type="button" routerLink="/auth/sign-in" mat-raised-button>Cancel</button>
+          <button type="button" [routerLink]="['/auth/sign-in']" mat-raised-button>Cancel</button>
         </div>
         <div>
           <button [disabled]="!signUpForm.valid" (click)="onSignUp()" mat-raised-button color="primary">

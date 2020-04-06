@@ -1,0 +1,28 @@
+@import './../../../../styles.scss';
+
+.navbar {
+
+  mat-toolbar {
+    position: fixed;
+    z-index: 1;
+    color: #000000;
+    background-color: #ffffff;
+    font-family: 'Ubuntu', sans-serif !important;
+  }
+
+  @include e('content') {
+    display: grid;
+    grid-template-columns: 1fr 9.5fr 1fr .5fr;
+    column-gap: 20px;
+
+    div {
+      display: grid;
+      place-items: center;
+    }
+
+    h1,
+    h3 {
+      font: inherit;
+    }
+  }
+}

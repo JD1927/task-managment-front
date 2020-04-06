@@ -1,0 +1,24 @@
+<h2>Create a New Task</h2>
+<p>Provide all the information to create a new task successfully.</p>
+<div>
+  <form [formGroup]="newTaskForm" (ngSubmit)="onCreateNewTask()" class="new-task">
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title">
+      <mat-error *ngIf="newTaskForm.controls.title.hasError('required')">
+        Title is required.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput rows="8" formControlName="description"></textarea>
+      <mat-error *ngIf="newTaskForm.controls.description.hasError('required')">
+        Description is required.
+      </mat-error>
+    </mat-form-field>
+    <div class="new-task__actions">
+      <button mat-raised-button mat-dialog-close>Cancel</button>
+      <button type="submit" mat-raised-button [disabled]="!newTaskForm.valid" color="primary">Create</button>
+    </div>
+  </form>
+</div>

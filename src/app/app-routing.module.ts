@@ -26,7 +26,7 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./tasks/dashboard/dashboard.module').then(m => m.DashboardModule),
+    loadChildren: () => import('./tasks/components/dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [AuthGuard]
   },
   { path: '', redirectTo: '/auth/sign-in', pathMatch: 'full' },

@@ -1,15 +1,21 @@
 import { createAction, props } from '@ngrx/store';
+import { UserLogged, SignIn } from 'src/app/auth/models/auth.model';
 
-export const loadUsers = createAction(
-  '[User] Load Users'
+export const signIn = createAction(
+  '[User] Sign In',
+  props<{ data: SignIn }>()
 );
 
-export const loadUsersSuccess = createAction(
-  '[User] Load Users Success',
-  props<{ data: any }>()
+export const signInSuccess = createAction(
+  '[User] Sign In Success',
+  props<{ data: UserLogged }>()
 );
 
-export const loadUsersFailure = createAction(
-  '[User] Load Users Failure',
+export const signInFailure = createAction(
+  '[User] Sign In Failure',
   props<{ error: any }>()
+);
+
+export const clearUserState = createAction(
+  '[User] Clear User State'
 );

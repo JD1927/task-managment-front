@@ -1,0 +1,70 @@
+@import '../../../../styles.scss';
+
+.tasks {
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas: ' . tasks tasks tasks . ';
+
+  @include e('card') {
+    grid-area: tasks;
+    margin-top: 80px;
+
+    @include gc('header') {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-areas: 'title title title title title task';
+      margin-bottom: 20px;
+
+      .title {
+        grid-area: title;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 1.5rem;
+        font-weight: bold;
+        display: grid;
+        align-items: center;
+      }
+
+      .create-task {
+        grid-area: task;
+        display: grid;
+        place-items: center;
+
+        .img {
+          padding: 5px;
+        }
+      }
+    }
+
+    @include gc('content') {
+      margin-bottom: 20px;
+
+      .filter {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include e('letter') {}
+
+        @include e('status') {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+      }
+    }
+
+    @include gc('no-tasks') {
+      text-align: center;
+      font-size: 1.4rem;
+      color: #001f3f;
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      .create {
+        font-weight: 500;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}

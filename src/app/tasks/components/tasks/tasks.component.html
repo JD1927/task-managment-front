@@ -1,0 +1,47 @@
+<div class="tasks">
+  <mat-card class="tasks__card mat-elevation-z8">
+    <mat-card-header class="tasks__card-header">
+      <div class="title">
+        <div>Getting Things Done.</div>
+      </div>
+      <div class="create-task">
+        <button mat-raised-button color="primary" (click)="onCreateTask()">
+          <img class="material-icons img" src="../../../../assets/images/svg/add_circle.svg">
+          Task
+        </button>
+      </div>
+    </mat-card-header>
+    <mat-card-content class="tasks__card-content">
+      <div class="filter">
+        <div class="filter__letter">
+          <mat-form-field appearance="legacy">
+            <input #taskSearch [(ngModel)]="search"
+              matInput placeholder="Search a task starting by...">
+            <img matPrefix src="../../../../assets/images/svg/search.svg" alt="">
+          </mat-form-field>
+        </div>
+        <div class="filter__status">
+          <mat-form-field>
+            <mat-select [(value)]="status" (selectionChange)="onStatusChange($event.value)">
+              <mat-option value="No status filter">
+                No status filter
+              </mat-option>
+              <mat-option *ngFor="let status of taskStatus" [value]="status">
+                {{ status | uppercase }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div *ngIf="tasks.length > 0">
+
+        <app-task *ngFor="let task of tasks" [task]="task"></app-task>
+      </div>
+
+      <div *ngIf="tasks.length === 0" class="tasks__card-no-tasks">
+        No tasks available. <span class="create" (click)="onCreateTask()">Create one?</span>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
