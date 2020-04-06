@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
@@ -14,7 +14,7 @@ import { AppState } from 'src/app/store/reducers/appReducer.reducer';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnDestroy {
 
   userState$: Subscription = new Subscription();
   user: UserLogged;
@@ -28,6 +28,10 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserLogged();
+  }
+
+  ngOnDestroy(): void {
+    this.userState$.unsubscribe();
   }
 
   getUserLogged(): void {

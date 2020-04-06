@@ -38,6 +38,7 @@ export class TasksComponent implements OnInit, OnDestroy, AfterViewInit  {
 
   ngOnDestroy(): void {
     this.getUserTasks$.unsubscribe();
+    this.keyUpSearch$.unsubscribe();
   }
 
   ngAfterViewInit(): void {
